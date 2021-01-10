@@ -53,10 +53,11 @@ public class PersonaController {
 			personas0 = repository.findAll();
 			// Registro de entrada y salida de datos en el momento de uso del método.
 			logger.info("Consulta de personas");
-			LogBD("200", "verTodasPersonas ha sido Exitoso");
+			LogBD("200", "Objeto de entrada: null, Objeto salida: id=" + personas0.get(0).getId()
+					+ " , verTodasPersonas ha sido Exitoso");
 		} catch (Exception e) {
 			logger.info("Consulta de personas");
-			LogBD("500", "El proceso ha fallado");
+			LogBD("500", "Error al buscar los registros");
 		}
 		return personas0;
 	}
@@ -74,7 +75,7 @@ public class PersonaController {
 					() -> new ResourceNotFoundException("No se encuentra a esa persona con el id ::" + id));
 			// Registro de entrada y salida de datos en el momento de uso del método.
 			logger.info("Consulta de personas");
-			LogBD("200", "getAllPersonal Exitoso");
+			LogBD("200", "Objeto de entrada: null, objeto de salida: id=" + persona.getId() + ", verPersonaId Exitoso");
 			persona1 = ResponseEntity.ok().body(persona);
 		} catch (Exception e) {
 			logger.info("Consulta de personas");
@@ -91,10 +92,11 @@ public class PersonaController {
 			// Función que sirve para agregar personas a la base de datos.
 			personas1 = repository.save(personas);
 			logger.info("Consulta de personas");
-			LogBD("200", "Persona añadida de manera correcta");
+			LogBD("200",
+					"Objeto de entrada: id=" + personas1.getId() + ", addPersona se ha ejecutado de manera correcta");
 		} catch (Exception e) {
 			logger.info("Consulta de personas");
-			LogBD("500", "error al añadir a la persona");
+			LogBD("500", "Error al añadir a la persona");
 		}
 		return personas1;
 	}
@@ -107,7 +109,7 @@ public class PersonaController {
 		// id,
 		repository.deleteById(id);
 		logger.info("Consulta de personas");
-		LogBD("200", "Registro de la persona con grupo familiar eliminado con exito");
+		LogBD("200", "eliminarPersona se ha ejecutado correctamente");
 		return "La persona con el id " + id + " ha sido eliminada";
 	}
 
@@ -140,7 +142,7 @@ public class PersonaController {
 			persona1 = ResponseEntity.ok(updatePersonas);
 
 			logger.info("Consulta de Personas");
-			LogBD("200", "Modificación de Persona exitosa");
+			LogBD("200", "Objeto de entrada: id=" + perso.getId() + "Objeto de salida: id=" + perso.toString() + ", modificarPersonas se ha ejecutado de manera correcta");
 		} catch (Exception e) {
 			logger.info("Consulta de personas");
 			LogBD("500", "Error al modificar la información");

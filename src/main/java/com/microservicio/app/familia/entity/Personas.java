@@ -70,8 +70,11 @@ public class Personas implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Persona [id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", telefono=" + telefono + "]";
+		return "Personas [id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", telefono=" + telefono
+				+ ", familiares=" + familiares + "]";
 	}
+
+	
 
 	
 }
